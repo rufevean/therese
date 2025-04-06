@@ -1,4 +1,10 @@
 # therese
+  __  .__                                        
+_/  |_|  |__   ___________   ____   ______ ____  
+\   __\  |  \_/ __ \_  __ \_/ __ \ /  ___// __ \ 
+ |  | |   Y  \  ___/|  | \/\  ___/ \___ \\  ___/ 
+ |__| |___|  /\___  >__|    \___  >____  >\___  >
+           \/     \/            \/     \/     \/ 
 
 **Therese** is a lightweight, terminal-based cryptography toolkit that provides classic encryption and decryption utilities. It's designed for learning, experimentation, and practical usage in CTFs or daily terminal workflows.
 

@@ -1,3 +1,18 @@
+import base64
+
+def show_banner():
+    banner = r"""
+  __  .__                                        
+_/  |_|  |__   ___________   ____   ______ ____  
+\   __\  |  \_/ __ \_  __ \_/ __ \ /  ___// __ \ 
+ |  | |   Y  \  ___/|  | \/\  ___/ \___ \\  ___/ 
+ |__| |___|  /\___  >__|    \___  >____  >\___  >
+           \/     \/            \/     \/     \/ 
+                                        
+       🕵️‍♀️ Therese 
+    """
+    print(banner)
+
 
 def rot(cipher, r=13):
     result = []
@@ -10,6 +25,12 @@ def rot(cipher, r=13):
             rotated = char  
         result.append(rotated)
     return ''.join(result)
+
+def base64_encode(text):
+    return base64.b64encode(text.encode('utf-8')).decode('utf-8')
+
+def base64_decode(text):
+    return base64.b64decode(text.encode('utf-8')).decode('utf-8')
 
 def rot_encoder(cipher, r=13):
     return rot(cipher, r)
@@ -25,13 +46,15 @@ def caesar_bruteforce(cipher):
 
 
 def menu():
+    show_banner()
     while True:
-        print("\n==== Crypto CLI Tool ====")
         print("1. ROT Encode")
         print("2. ROT Decode")
         print("3. Caesar Cipher Brute-force")
-        print("4. Exit")
-        choice = input("Select an option (1-4): ")
+        print("4. Base64 Encode")
+        print("5. Base64 Decode")
+        print("6. Exit")
+        choice = input("Select an option (1-6): ")
 
         if choice == "1":
             text = input("Enter text to encode: ")
@@ -51,6 +74,15 @@ def menu():
             cipher = input("Enter cipher text to brute-force: ")
             caesar_bruteforce(cipher)
         elif choice == "4":
+            text = input("Enter text to Base64 encode: ")
+            print("Base64 Encoded:", base64_encode(text))
+        elif choice == "5":
+            text = input("Enter Base64 text to decode: ")
+            try:
+                print("Base64 Decoded:", base64_decode(text))
+            except Exception as e:
+                print("Decoding failed:", e)
+        elif choice == "6":
             print("Exiting... Goodbye!")
             break
         else:
